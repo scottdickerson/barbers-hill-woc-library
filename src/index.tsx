@@ -1,15 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { ImageContextProvider, ImageContext } from "./ImageContextProvider";
+
+import { QueryClient, QueryClientProvider } from "react-query";
 import * as serviceWorker from "./serviceWorker";
-import { ImagesTest } from "./ImagesTest";
+import { BrowserRouter } from "react-router-dom";
+import { App } from "./App";
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ImageContextProvider>
-      <ImagesTest></ImagesTest>
-    </ImageContextProvider>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

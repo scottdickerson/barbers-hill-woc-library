@@ -11,23 +11,34 @@ export interface Image {
   year: number;
   description: string;
   fileName: string;
+  id: string;
 }
 
-export const ImageContext = React.createContext<Image[]>([]); // context stores a list of images
+export interface ImagePageContext {
+  images: Image[];
+  isLoading?: boolean;
+  error?: Error | null;
+}
+
+export const ImageContext = React.createContext<ImagePageContext>({
+  images: [],
+}); // context stores a list of images
 
 export const ImageContextProvider: React.FC<ImageContextProviderProps> = ({
-  serverURL = "http://127.0.0.1:3000/api/images",
+  serverURL = "http://127.0.0.1:3000/api",
   children,
 }: ImageContextProviderProps) => {
   const { data, isLoading, error } = useQuery<Image[], Error>(
     "images",
     (): Promise<Image[]> =>
-      fetch(serverURL).then((response) =>
-        Array.isArray(response) ? response : []
-      )
+      fetch(serverURL)
+        .then((response) => response.json())
+        .then((response) => (Array.isArray(response) ? response : []))
   );
   return data ? (
-    <ImageContext.Provider value={data}>{children}</ImageContext.Provider>
+    <ImageContext.Provider value={{ images: data, isLoading, error }}>
+      {children}
+    </ImageContext.Provider>
   ) : null;
 };
 
