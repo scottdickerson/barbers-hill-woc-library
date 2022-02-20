@@ -1,0 +1,43 @@
+.championDetailsFooter {
+  position: relative;
+}
+
+.championDetailsButtons {
+  display: flex;
+  width: calc(100% - 4rem);
+  height: 125px;
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 2rem;
+}
+.previousTeamButton,
+.nextTeamButton {
+  background-color: inherit;
+  border: unset;
+}
+.nextTeamButton {
+  margin-left: auto;
+}
+.previousTeamButton {
+  margin-right: auto;
+}
+.previousTeamButton img,
+.nextTeamButton img {
+  max-height: 65px;
+}
+
+.championDetailsFooter img {
+  max-width: 1080px;
+}
+.championDetailsDescription {
+  color: #ebdfca;
+  font-size: 20px;
+  line-height: 40px;
+  position: absolute;
+  top: 200px;
+  margin: 0rem 60px;
+  padding: 0rem 60px;
+  max-height: 375px;
+  overflow-y: auto;
+}

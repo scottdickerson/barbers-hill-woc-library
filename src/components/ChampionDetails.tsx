@@ -1,22 +1,43 @@
-import teamsFooter from "./images/12.3-2C-Teams-BottomSection.png";
 import styles from "./ChampionDetails.module.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ImageContext } from "../ImageContextProvider";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ChampionDetailsHeader from "./ChampionDetailsHeader";
 import ChampionDetailsImage from "./ChampionDetailsImage";
+import ChampionDetailsFooter from "./ChampionDetailsFooter";
+import { ROUTES } from "./constants";
+import { useTimeout } from "../customHooks";
+
+const DETAILS_PAGE_TIMEOUT = 60000;
 
 const ChampionDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { images } = useContext(ImageContext);
-  const imageToShow = id
-    ? images?.find((image) => image.id === id)
-    : images?.[0];
+  const imageToShowIndex = id
+    ? images?.findIndex((image) => image.id === id)
+    : 0; // start from zero if not specified
+  const imageToShow = images[Math.max(0, imageToShowIndex)];
+
+  useTimeout(() => navigate(ROUTES.MAIN), DETAILS_PAGE_TIMEOUT);
+
+  const handleNext = () => {
+    console.log("next champion");
+    navigate(`${ROUTES.DETAILS}/${images[imageToShowIndex + 1]?.id}`);
+  };
+  const handlePrevious = () => {
+    console.log("previous champion");
+    navigate(`${ROUTES.DETAILS}/${images[imageToShowIndex - 1]?.id}`);
+  };
   return imageToShow ? (
     <div className={styles.championDetails}>
       <ChampionDetailsHeader {...imageToShow} />
       <ChampionDetailsImage imageSrc={imageToShow.fileName} />
-      <img src={teamsFooter} />
+      <ChampionDetailsFooter
+        description={imageToShow.description}
+        onNext={imageToShowIndex < images.length - 1 ? handleNext : undefined}
+        onPrevious={imageToShowIndex > 0 ? handlePrevious : undefined}
+      />
     </div>
   ) : null;
 };
