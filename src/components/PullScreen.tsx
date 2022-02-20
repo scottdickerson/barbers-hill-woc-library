@@ -28,7 +28,11 @@ const PullScreen = () => {
       })}
     >
       <img src={topBanner} alt="Decorative Banner" />
-      <img src={centerVideo} alt="Voices of Mont Belview" />
+      <img
+        className={styles.pullScreenEagle}
+        src={centerVideo}
+        alt="Voices of Mont Belview"
+      />
       <img src={bottomBanner} alt="Decorative Banner" />
     </div>
   );

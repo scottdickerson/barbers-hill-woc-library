@@ -7,3 +7,8 @@
 .pullScreen img {
   max-width: 1080px;
 }
+
+.pullScreenEagle {
+  width: 1080px;
+  height: 1062px;
+}
