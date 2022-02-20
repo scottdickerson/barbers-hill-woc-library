@@ -1,0 +1,9 @@
+.pullScreen {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.pullScreen img {
+  max-width: 1080px;
+}
