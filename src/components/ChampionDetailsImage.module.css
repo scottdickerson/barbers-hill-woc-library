@@ -1,0 +1,11 @@
+.imageBackground {
+  background-color: black;
+  flex: 1;
+  justify-content: center;
+}
+
+.imageBackground img {
+  height: 100%;
+  max-width: 1080px;
+  object-fit: contain;
+}

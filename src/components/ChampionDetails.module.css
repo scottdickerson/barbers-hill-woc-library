@@ -1,0 +1,9 @@
+.championDetails {
+  display: flex;
+  flex-flow: column;
+  height: 1920px;
+}
+
+.championDetails > * {
+  max-width: 1080px;
+}
