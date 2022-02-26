@@ -8,6 +8,14 @@
   max-width: 1080px;
 }
 
+.topBanner {
+  height: 369px;
+}
+
+.bottomBanner {
+  height: 489px;
+}
+
 .pullScreenEagle {
   width: 1080px;
   height: 1062px;

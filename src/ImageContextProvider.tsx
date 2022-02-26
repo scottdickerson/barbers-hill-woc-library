@@ -35,7 +35,8 @@ export const ImageContextProvider: React.FC<ImageContextProviderProps> = ({
     (): Promise<Image[]> =>
       fetch(serverURL)
         .then((response) => response.json())
-        .then((response) => (Array.isArray(response) ? response : []))
+        .then((response) => (Array.isArray(response) ? response : [])),
+    { refetchInterval: 30000 }
   );
   return data ? (
     <ImageContext.Provider

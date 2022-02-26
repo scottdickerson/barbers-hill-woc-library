@@ -1,10 +1,11 @@
 .championDetails {
   display: flex;
   flex-flow: column;
-  height: 1920px;
+  max-height: 1920px;
   align-items: center;
 }
 
 .championDetails > * {
   max-width: 1080px;
+  width: 1080px;
 }

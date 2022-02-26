@@ -20,6 +20,18 @@ Use this variable before starting the server to set the hostname of the API serv
 by default on the heroku instance it's set to our heroku deployed server
 set REACT_APP_SERVER_URL=https://barbers-hill-woc-server.herokuapp.com/api
 
+## Deploy to Heroku for testing
+
+```~~~bash
+heroku login
+heroku git:remote -a barbers-hill-woc-library
+npm run deploy
+heroku config:set REACT_APP_SERVER_URL=https://barbers-hill-woc-server.herokuapp.com/api
+
+
+Open a browser to this URL for testing
+https://barbers-hill-woc-library.herokuapp.com/
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
@@ -50,3 +62,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+```

@@ -8,7 +8,8 @@ import ChampionDetailsFooter from "./ChampionDetailsFooter";
 import { ROUTES } from "./constants";
 import { useTimeout } from "../customHooks";
 
-const DETAILS_PAGE_TIMEOUT = 60000;
+// const DETAILS_PAGE_TIMEOUT = 60000;
+const DETAILS_PAGE_TIMEOUT = 600000;
 
 const ChampionDetails = () => {
   const { id } = useParams();

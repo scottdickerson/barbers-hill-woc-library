@@ -20,6 +20,7 @@ const PullScreen = () => {
 
   useEffect(() => {
     document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
   }, [handleClick]);
 
   return (
@@ -28,7 +29,11 @@ const PullScreen = () => {
         [styles.pullScreen]: true,
       })}
     >
-      <img src={topBanner} alt="Decorative Banner" />
+      <img
+        className={styles.topBanner}
+        src={topBanner}
+        alt="Decorative Banner"
+      />
       <video
         className={styles.pullScreenEagle}
         src={centerVideo}
@@ -36,7 +41,11 @@ const PullScreen = () => {
         muted
         loop
       />
-      <img src={bottomBanner} alt="Decorative Banner" />
+      <img
+        className={styles.bottomBanner}
+        src={bottomBanner}
+        alt="Decorative Banner"
+      />
     </div>
   );
 };

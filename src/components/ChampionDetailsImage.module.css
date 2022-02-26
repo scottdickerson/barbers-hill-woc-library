@@ -2,10 +2,15 @@
   background-color: black;
   flex: 1;
   justify-content: center;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
 }
 
 .imageBackground img {
   height: 100%;
   max-width: 1080px;
+  max-height: 923px;
+  min-height: 923px;
   object-fit: contain;
 }
