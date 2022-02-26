@@ -1,5 +1,6 @@
 import topBanner from "./images/12.3-1A-Pull-TopSection.png";
-import centerVideo from "./images/12.3-1B-Pull-CenterVideo-FPO.png";
+// import centerVideo from "./images/12.3-1B-Pull-CenterVideo-FPO.png";
+import centerVideo from "./videos/wallOfChampions-PullScreen-02.mp4";
 import bottomBanner from "./images/12.3-1C-Pull-BottomSection.png";
 import styles from "./PullScreen.module.css";
 import { useEffect, useCallback } from "react";
@@ -28,10 +29,12 @@ const PullScreen = () => {
       })}
     >
       <img src={topBanner} alt="Decorative Banner" />
-      <img
+      <video
         className={styles.pullScreenEagle}
         src={centerVideo}
-        alt="Voices of Mont Belview"
+        autoPlay
+        muted
+        loop
       />
       <img src={bottomBanner} alt="Decorative Banner" />
     </div>

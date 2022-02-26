@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: column;
   height: 1920px;
+  align-items: center;
 }
 
 .championDetails > * {
