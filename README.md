@@ -4,10 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `PORT=4000 npm start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:4000](http://localhost:4000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
@@ -16,6 +16,9 @@ You will also see any lint errors in the console.
 
 Use this variable before starting the server to set the hostname of the API server (will default to 127.0.0.1 unless set)
 `set REACT_APP_SERVER_URL=<> npm start`
+
+by default on the heroku instance it's set to our heroku deployed server
+set REACT_APP_SERVER_URL=https://barbers-hill-woc-server.herokuapp.com/api
 
 ### `npm test`
 
