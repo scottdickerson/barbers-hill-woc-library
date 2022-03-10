@@ -1,5 +1,5 @@
 import styles from "./ChampionDetails.module.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ImageContext } from "../ImageContextProvider";
 import { useParams, useNavigate } from "react-router-dom";
 import ChampionDetailsHeader from "./ChampionDetailsHeader";
@@ -20,7 +20,7 @@ const ChampionDetails = () => {
     : 0; // start from zero if not specified
   const imageToShow = images[Math.max(0, imageToShowIndex)];
 
-  useTimeout(() => navigate(ROUTES.MAIN), DETAILS_PAGE_TIMEOUT);
+  useTimeout(() => navigate(ROUTES.MAIN), DETAILS_PAGE_TIMEOUT, id || "");
 
   const handleNext = () => {
     console.log("next champion");
@@ -30,17 +30,17 @@ const ChampionDetails = () => {
     console.log("previous champion");
     navigate(`${ROUTES.DETAILS}/${images[imageToShowIndex - 1]?.id}`);
   };
-  return imageToShow ? (
+  return (
     <div className={styles.championDetails}>
       <ChampionDetailsHeader {...imageToShow} />
-      <ChampionDetailsImage imageSrc={imageToShow.fileName} />
+      <ChampionDetailsImage imageSrc={imageToShow?.fileName} />
       <ChampionDetailsFooter
-        description={imageToShow.description}
+        description={imageToShow?.description}
         onNext={imageToShowIndex < images.length - 1 ? handleNext : undefined}
         onPrevious={imageToShowIndex > 0 ? handlePrevious : undefined}
       />
     </div>
-  ) : null;
+  );
 };
 
 export default ChampionDetails;

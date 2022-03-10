@@ -3,9 +3,9 @@ import teamsHeader from "./images/12.3-2A-Teams-TopSection.png";
 import styles from "./ChampionDetailsHeader.module.css";
 
 export interface ChampionDetailsHeaderProps {
-  sport: string;
-  award: string;
-  year: number;
+  sport?: string;
+  award?: string;
+  year?: number;
 }
 
 const ChampionDetailsHeader: VFC<ChampionDetailsHeaderProps> = ({
@@ -17,13 +17,13 @@ const ChampionDetailsHeader: VFC<ChampionDetailsHeaderProps> = ({
     <div className={styles.championDetailsHeader}>
       <div className={styles.championDetailsHeaderText}>
         <span className={styles.championDetailsHeaderTopText}>
-          {sport.toLocaleUpperCase()}
+          {sport ? sport.toLocaleUpperCase() : "Sport cannot be loaded"}
         </span>
         <span className={styles.championDetailsHeaderTopText}>
-          {award.toLocaleUpperCase()}
+          {award ? award.toLocaleUpperCase() : "Award cannot be loaded"}
         </span>
         <span className={styles.championDetailsHeaderBottomText}>
-          {year.toString()}
+          {year ? year.toString() : "Year cannot be loaded"}
         </span>
       </div>
       <img src={teamsHeader} />
