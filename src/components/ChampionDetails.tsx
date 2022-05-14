@@ -2,7 +2,7 @@ import styles from "./ChampionDetails.module.css";
 import { useContext } from "react";
 import { ImageContext } from "../ImageContextProvider";
 import { useParams, useNavigate } from "react-router-dom";
-import ChampionDetailsHeader from "./ChampionDetailsHeader";
+import { BarbersHillDetailsHeader } from "@scottdickerson/barbers-hill-shared-components";
 import ChampionDetailsImage from "./ChampionDetailsImage";
 import ChampionDetailsFooter from "./ChampionDetailsFooter";
 import { ROUTES } from "./constants";
@@ -32,7 +32,11 @@ const ChampionDetails = () => {
   };
   return (
     <div className={styles.championDetails}>
-      <ChampionDetailsHeader {...imageToShow} />
+      <BarbersHillDetailsHeader
+        title={imageToShow.sport}
+        subtitle={imageToShow.award}
+        details={imageToShow.year.toString()}
+      />
       <ChampionDetailsImage imageSrc={imageToShow?.fileName} />
       <ChampionDetailsFooter
         description={imageToShow?.description}

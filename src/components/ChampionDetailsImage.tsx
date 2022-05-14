@@ -6,7 +6,7 @@ const ChampionDetailsImage: VFC<{ imageSrc: string }> = ({ imageSrc }) => {
   const { serverURL } = useContext(ImageContext);
   return (
     <div className={styles.imageBackground}>
-      <img src={`${serverURL}/${imageSrc}`} />
+      <img src={`${serverURL}/${imageSrc}`} alt="Champion" />
     </div>
   );
 };

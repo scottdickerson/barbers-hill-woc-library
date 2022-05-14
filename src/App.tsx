@@ -4,6 +4,7 @@ import PullScreen from "./components/PullScreen";
 import { Routes, Route } from "react-router-dom";
 import { ROUTES } from "./components/constants";
 import "./App.module.css";
+import "@scottdickerson/barbers-hill-shared-components/dist/fonts/fonts.css";
 
 export const App = () => (
   <ImageContextProvider>

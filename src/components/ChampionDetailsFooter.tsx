@@ -20,16 +20,16 @@ const ChampionDetailsFooter: VFC<ChampionDetailsFooterProps> = ({
       <div className={styles.championDetailsButtons}>
         {onPrevious ? (
           <button className={styles.previousTeamButton} onClick={onPrevious}>
-            <img src={previousTeamButton} />
+            <img src={previousTeamButton} alt="Previous" />
           </button>
         ) : null}
         {onNext ? (
           <button className={styles.nextTeamButton} onClick={onNext}>
-            <img src={nextTeamButton} />
+            <img src={nextTeamButton} alt="Next" />
           </button>
         ) : null}
       </div>
-      <img src={teamsFooter} />
+      <img src={teamsFooter} alt="background" />
       <div className={styles.championDetailsDescription}>
         <span>{description}</span>
       </div>

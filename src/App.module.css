@@ -1,13 +1,1 @@
-@font-face {
-  font-family: Avenir;
-  src: url(./components/fonts/Avenir-Medium-09.ttf);
-}
 
-@font-face {
-  font-family: Acumin;
-  src: url(./components/fonts/Acumin-Pro.ttf);
-}
-
-body {
-  font-family: Avenir;
-}
