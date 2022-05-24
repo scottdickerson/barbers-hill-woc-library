@@ -27,6 +27,7 @@ heroku login
 heroku git:remote -a barbers-hill-woc-library
 npm run deploy
 heroku config:set REACT_APP_SERVER_URL=https://barbers-hill-woc-server.herokuapp.com/api
+heroku config:set NPM_TOKEN=<your github packages token>
 
 
 Open a browser to this URL for testing
