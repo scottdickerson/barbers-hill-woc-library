@@ -38,13 +38,13 @@ export const ImageContextProvider: React.FC<ImageContextProviderProps> = ({
         .then((response) => (Array.isArray(response) ? response : [])),
     { refetchInterval: 30000 }
   );
-  return data ? (
+  return (
     <ImageContext.Provider
-      value={{ images: data, isLoading, error, serverURL }}
+      value={{ images: data || [], isLoading, error, serverURL }}
     >
       {children}
     </ImageContext.Provider>
-  ) : null;
+  );
 };
 
 ImageContextProvider.displayName = "ImageContextProvider";

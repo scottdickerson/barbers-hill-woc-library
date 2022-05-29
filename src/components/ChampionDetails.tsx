@@ -5,11 +5,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { BarbersHillDetailsHeader } from "@scottdickerson/barbers-hill-shared-components";
 import ChampionDetailsImage from "./ChampionDetailsImage";
 import ChampionDetailsFooter from "./ChampionDetailsFooter";
+import { useReturnUnlessTouch } from "@scottdickerson/barbers-hill-shared-components";
 import { ROUTES } from "./constants";
-import { useTimeout } from "../customHooks";
 
-const DETAILS_PAGE_TIMEOUT = 60000;
-// const DETAILS_PAGE_TIMEOUT = 600000;
+const DETAILS_PAGE_TIMEOUT = 120000;
 
 const ChampionDetails = () => {
   const { id } = useParams();
@@ -20,7 +19,10 @@ const ChampionDetails = () => {
     : 0; // start from zero if not specified
   const imageToShow = images[Math.max(0, imageToShowIndex)];
 
-  useTimeout(() => navigate(ROUTES.MAIN), DETAILS_PAGE_TIMEOUT, id || "");
+  useReturnUnlessTouch({
+    returnURL: () => navigate(ROUTES.MAIN),
+    timeout: DETAILS_PAGE_TIMEOUT,
+  });
 
   const handleNext = () => {
     console.log("next champion");
